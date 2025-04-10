@@ -27,6 +27,15 @@ app.get("/szoba", (req, res) => {
 
 });
 
+app.get("/agyakszama", (req, res) => {
+    db.query("SELECT*FROM szobak WHERE szobak.agy = 3"
+    , (err, result) => {
+        if (err) return res.json(err);
+        res.json(result);
+    });
+
+});
+
 app.listen(3000, () => {
     console.log("A fogado szerver a 3000-es porton fut.")
 })
